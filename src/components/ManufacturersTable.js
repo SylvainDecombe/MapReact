@@ -23,6 +23,19 @@ export class ManufacturersTable extends React.Component {
         })
     }
 
+    edit(){
+        console.log(this);
+    }
+
+    show(){
+        console.log(this);
+    }
+
+    delete(){
+        console.log(this);
+    }
+
+
     renderTableData() {
         return this.state.manufacturers.map((manufacturer, index) => {
             const { id, name, age, email } = manufacturer //destructuring
@@ -34,9 +47,12 @@ export class ManufacturersTable extends React.Component {
                     <td>{email}</td>
                     <td style={{textAlign: "right"}}>
                         <div className="btn-group" >
-                            <Button className="btn btn-info">Voir</Button>
-                            <Button className="btn btn-warning">Editer</Button>
-                            <Button className="btn btn-danger">Supprimer</Button>
+                            <Button className="btn btn-info" onClick={this.show.bind(index)}>
+                                <i className="pi pi-eye mr-1"/>Voir</Button>
+                            <Button className="btn btn-warning" onClick={this.edit.bind(index)}>
+                                <i className="pi pi-pencil mr-1"/>Editer</Button>
+                            <Button className="btn btn-danger" onClick={this.delete.bind(index)}>
+                                <i className="pi pi-trash mr-1"/>Supprimer</Button>
                         </div>
                     </td>
                 </tr>
@@ -47,12 +63,17 @@ export class ManufacturersTable extends React.Component {
     render() {
         return (
             <div>
-                <table className="table-striped table" id='manufacturers'>
-                    <tbody>
-                    <tr>{this.renderTableHeader()}</tr>
-                    {this.renderTableData()}
-                    </tbody>
-                </table>
+                <div className="pb-2" style={{textAlign: "right"}}>
+                    <Button className="btn btn-dark" ><i className="pi pi-user-plus mr-2"/>Ajouter nouveau fabricant</Button>
+                </div>
+                <div>
+                    <table className="table-striped table" id='manufacturers'>
+                        <tbody>
+                        <tr>{this.renderTableHeader()}</tr>
+                        {this.renderTableData()}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
     }

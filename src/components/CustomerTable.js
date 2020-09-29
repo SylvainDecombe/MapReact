@@ -23,19 +23,20 @@ export class CustomerTable extends React.Component {
         })
     }
 
-    edit(index){
-        console.log(index);
+    edit(){
+        console.log(this);
     }
 
-    show(index){
-        console.log(index);
+    show(){
+        console.log(this);
     }
 
-    delete(index){
-        console.log(index);
+    delete(){
+        console.log(this);
     }
 
     renderTableData() {
+
         return this.state.customers.map((customer, index) => {
             const { id, name, age, email } = customer //destructuring
             return (
@@ -46,9 +47,12 @@ export class CustomerTable extends React.Component {
                     <td>{email}</td>
                     <td style={{textAlign: "right"}}>
                         <div className="btn-group" >
-                            <Button className="btn btn-info">Voir</Button>
-                            <Button className="btn btn-warning">Editer</Button>
-                            <Button className="btn btn-danger">Supprimer</Button>
+                            <Button className="btn btn-info" onClick={this.show.bind(index)}>
+                                <i className="pi pi-eye mr-1"/>Voir</Button>
+                            <Button className="btn btn-warning" onClick={this.edit.bind(index)}>
+                                <i className="pi pi-pencil mr-1"/>Editer</Button>
+                            <Button className="btn btn-danger" onClick={this.delete.bind(index)}>
+                                <i className="pi pi-trash mr-1"/>Supprimer</Button>
                         </div>
                     </td>
                 </tr>
@@ -59,12 +63,17 @@ export class CustomerTable extends React.Component {
     render() {
         return (
             <div>
-                <table className="table-striped table" id='customers'>
-                    <tbody>
-                    <tr>{this.renderTableHeader()}</tr>
-                    {this.renderTableData()}
-                    </tbody>
-                </table>
+                <div className="pb-2" style={{textAlign: "right"}}>
+                    <Button className="btn btn-dark" ><i className="pi pi-user-plus mr-2"/>Ajouter nouveau client</Button>
+                </div>
+                <div>
+                    <table className="table-striped table" id='customers'>
+                        <tbody>
+                        <tr>{this.renderTableHeader()}</tr>
+                        {this.renderTableData()}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
     }
