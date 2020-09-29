@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import {Navbar, NavbarText, Nav} from "reactstrap/lib";
 import Home from "../../pages/home/Home";
-import Settings from "../../pages/settings/Settings";
+import Settings from "../../pages/customers/Customers";
 import Login from "../../pages/login/Login";
 import AuthService from "../../services/auth-service";
 

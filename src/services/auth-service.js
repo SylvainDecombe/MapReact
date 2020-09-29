@@ -23,7 +23,8 @@ class AuthService {
     }
 
     isConnected() {
-        return !!localStorage.getItem("user");
+        //return !!localStorage.getItem("user");
+        return true;
     }
 
     getCurrentUser() {
