@@ -8,9 +8,10 @@ import {
 } from "react-router-dom";
 import {Navbar, NavbarText, Nav} from "reactstrap/lib";
 import Home from "../../pages/home/Home";
-import Settings from "../../pages/customers/Customers";
+import Customers from "../../pages/customers/Customers";
 import Login from "../../pages/login/Login";
 import AuthService from "../../services/auth-service";
+import Manufacturers from "../../pages/manufacturers/Manufacturers";
 
 function App() {
     return (
@@ -33,7 +34,8 @@ function App() {
                     <Nav>
                         <div className="mr-3">
                             <NavLink className={'navLink mr-2'} to="/">Home</NavLink>
-                            <NavLink className={'navLink mr-2'} to="/settings">Settings</NavLink>
+                            <NavLink className={'navLink mr-2'} to="/customers">Customers</NavLink>
+                            <NavLink className={'navLink mr-2'} to="/manufacturers">Manufacturers</NavLink>
                         </div>
                         <div>
                             <NavLink className={'navLink'} to="/" onClick={AuthService.logout()}>Log out</NavLink>
@@ -42,8 +44,11 @@ function App() {
                     </Nav>
                 </Navbar>
                     <Switch>
-                        <Route path="/settings">
-                            <Settings/>
+                        <Route path="/customers">
+                            <Customers/>
+                        </Route>
+                        <Route path="/manufacturers">
+                            <Manufacturers/>
                         </Route>
                         <Route path="/">
                             <Home/>
