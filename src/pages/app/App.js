@@ -12,6 +12,7 @@ import Customers from "../../pages/customers/Customers";
 import Login from "../../pages/login/Login";
 import AuthService from "../../services/auth-service";
 import Manufacturers from "../../pages/manufacturers/Manufacturers";
+import Admin from "../../pages/admin/Admin";
 
 function App() {
     return (
@@ -34,8 +35,9 @@ function App() {
                     <Nav>
                         <div className="mr-3">
                             <NavLink className={'navLink mr-2'} to="/">Home</NavLink>
-                            <NavLink className={'navLink mr-2'} to="/customers">Customers</NavLink>
-                            <NavLink className={'navLink mr-2'} to="/manufacturers">Manufacturers</NavLink>
+                            <NavLink className={'navLink mr-2'} to="/customers">Clients</NavLink>
+                            <NavLink className={'navLink mr-2'} to="/manufacturers">Fabricants</NavLink>
+                            <NavLink className={'navLink mr-2'} to="/admin">Administration</NavLink>
                         </div>
                         <div>
                             <NavLink className={'navLink'} to="/" onClick={AuthService.logout()}>Log out</NavLink>
@@ -49,6 +51,9 @@ function App() {
                         </Route>
                         <Route path="/manufacturers">
                             <Manufacturers/>
+                        </Route>
+                        <Route path="/admin">
+                            <Admin/>
                         </Route>
                         <Route path="/">
                             <Home/>
