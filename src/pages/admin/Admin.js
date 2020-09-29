@@ -1,6 +1,6 @@
 import React from 'react';
 import {TabPanel, TabView} from "primereact/tabview";
-import {CustomerTable} from "../../components/CustomerTable";
+import {CustomersTable} from "../../components/CustomersTable";
 import './Admin.css';
 import {ManufacturersTable} from "../../components/ManufacturersTable";
 import {UsersTable} from "../../components/UsersTable";
@@ -11,7 +11,7 @@ function Admin() {
       <div>
           <TabView activeIndex={0}>
               <TabPanel header="Clients">
-                  <CustomerTable/>
+                  <CustomersTable showBtn={true}></CustomersTable>
               </TabPanel>
               <TabPanel header="Fabricants">
                   <ManufacturersTable/>

@@ -1,16 +1,20 @@
 import React from 'react';
-import troll from "../../troll.png";
+import {TabPanel, TabView} from "primereact/tabview";
+import {PinMap} from "../../components/PinMap";
+import {ManufacturersTable} from "../../components/ManufacturersTable";
 
 
 function Manufacturers() {
   return (
       <div>
-          <header className="App-header">
-              <img src={troll} className="App-logo" alt="logo" />
-              <p>
-                  Edit <code>src/pages/manufacturers/Manufacturers.js</code>
-              </p>
-          </header>
+          <TabView activeIndex={0}>
+              <TabPanel header="Liste">
+                  <ManufacturersTable></ManufacturersTable>
+              </TabPanel>
+              <TabPanel header="Carte">
+                  <PinMap/>
+              </TabPanel>
+          </TabView>
       </div>
   );
 }
