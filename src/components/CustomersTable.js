@@ -8,13 +8,17 @@ const customers =  [
     { id: 4, name: 'Asad', age: 25, email: 'asad@email.com' }
 ]
 
-function CustomersTable ({ showBtn, toggleModalCustomerView }){
+function CustomersTable ({ showBtn,
+                             toggleModalCustomerAdd,
+                             toggleModalCustomerView,
+                             toggleModalCustomerEdit,
+                             toggleModalCustomerDelete}){
 
     return (
         <>
             {showBtn ? (
                 <div className="pb-2" style={{textAlign: "right"}}>
-                    <Button className="btn btn-dark" >
+                    <Button className="btn btn-dark" onClick={() => toggleModalCustomerAdd()}>
                         <i className="pi pi-user-plus mr-2"/>Ajouter nouveau client
                     </Button>
                 </div>
@@ -41,9 +45,9 @@ function CustomersTable ({ showBtn, toggleModalCustomerView }){
                                 <div className="btn-group">
                                     <Button className="btn btn-info" onClick={() => toggleModalCustomerView()}>
                                         <i className="pi pi-eye mr-1"/>Voirs</Button>
-                                    <Button className="btn btn-warning" >
+                                    <Button className="btn btn-warning" onClick={() => toggleModalCustomerEdit()}>
                                         <i className="pi pi-pencil mr-1"/>Editer</Button>
-                                    <Button className="btn btn-danger">
+                                    <Button className="btn btn-danger" onClick={() => toggleModalCustomerDelete()}>
                                         <i className="pi pi-trash mr-1"/>Supprimer
                                     </Button>
                                 </div>
