@@ -1,12 +1,14 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'primereact/resources/themes/saga-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import 'leaflet/dist/leaflet.css';
-
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import App from "./components/app/App";
+import App from "./pages/app/App";
 
 ReactDOM.render(
     <App /> ,
