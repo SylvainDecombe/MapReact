@@ -1,42 +1,26 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-const show = true;
-export default function DialogFormCustomer() {
+import {Button, Modal} from "reactstrap/lib";
+import React from "react";
 
+const {useState} = require("react");
+
+function DialogFormCustomer() {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
-        <div>
-            <Dialog open={show} onClose={show} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-                <DialogContent>
-                    <DialogContentText>
-                        To subscribe to this website, please enter your email address here. We will send updates
-                        occasionally.
-                    </DialogContentText>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label="Email Address"
-                        type="email"
-                        fullWidth
-                    />
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={show} color="primary">
-                        Cancel
-                    </Button>
-                    <Button onClick={show} color="primary">
-                        Subscribe
-                    </Button>
-                </DialogActions>
-            </Dialog>
-        </div>
+        <>
+            <Button variant="primary" onClick={handleShow}>
+                Launch demo modal
+            </Button>
+
+            <Modal show={show} onHide={handleClose}>
+                <p>Woohoo, you're reading this text in a modal!</p>
+
+            </Modal>
+        </>
     );
 }
+
+export default DialogFormCustomer();

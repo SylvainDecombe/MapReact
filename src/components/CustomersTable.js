@@ -60,6 +60,7 @@ export class CustomersTable extends React.Component {
                             </div>
                         </td>
                     </tr>
+
             )
         })
     }
