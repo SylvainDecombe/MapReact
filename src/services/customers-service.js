@@ -2,11 +2,11 @@ import axios from 'axios';
 
 const API_URL = 'http://localhost:3000/api/';
 
-class UserService {
+class CustomersService {
 
-    getAllUsers(){
+    getAllCustomers(){
         return []
     }
 }
 
-export default new UserService();
+export default new CustomersService();

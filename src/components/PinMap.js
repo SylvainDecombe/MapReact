@@ -4,7 +4,7 @@ import Map from "react-leaflet/lib/Map";
 import Popup from "react-leaflet/lib/Popup";
 import Marker from "react-leaflet/lib/Marker";
 
-const MyPopupMarker = ({ content, position }: Props) => (
+const MyPopupMarker = ({ content, position }) => (
     <Marker position={position}>
         <Popup>{content}</Popup>
     </Marker>

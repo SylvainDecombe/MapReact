@@ -1,7 +1,6 @@
 import React from 'react';
 import troll from "../../troll.png";
 import './Home.css'
-
 function Home() {
     return (
         <div>
