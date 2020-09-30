@@ -1,10 +1,12 @@
 import React from 'react';
 import Button from "reactstrap/lib/Button";
+import UserService from "./../services/user-service";
 
 export class UsersTable extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            user: UserService.getAllUsers(),
             /** Tableau des utilisateurs*/
             users: [
                 { id: 1, name: 'Wasif', age: 21, email: 'wasif@ghfjgemail.com' },
@@ -13,6 +15,7 @@ export class UsersTable extends React.Component {
                 { id: 4, name: 'Asad', age: 25, email: 'asad@email.com' }
             ]
         }
+        console.log(this.state.user)
     }
 
     renderTableHeader() {

@@ -30,6 +30,7 @@ function App() {
             <Router>
                 <Navbar color={'dark'}>
                     <NavbarText className={'navTitle'}>
+                        <i className="pi pi-map-marker mr-1"></i>
                         MapReact
                     </NavbarText>
                     <Nav>

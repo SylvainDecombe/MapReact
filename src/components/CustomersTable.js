@@ -1,13 +1,12 @@
 import React from 'react';
 import Button from "reactstrap/lib/Button";
+import CustomersService from './../services/customers-service';
 
 export class CustomersTable extends React.Component {
-
-    showBtn = false;
-
     constructor(props) {
         super(props)
         this.state = {
+            customer: CustomersService.getAllCustomers(),
             /** Tableau des clients*/
             customers: [
                 { id: 1, name: 'Wasif', age: 21, email: 'wasif@ghfjgemail.com' },
@@ -16,11 +15,12 @@ export class CustomersTable extends React.Component {
                 { id: 4, name: 'Asad', age: 25, email: 'asad@email.com' }
             ]
         }
+        console.log(this.state.customer)
     }
 
     renderTableHeader() {
         let header = Object.keys(this.state.customers[0])
-        if (this.showBtn){
+        if (this.props.showBtn){
             header.push(" ");
         }
         return header.map((key, index) => {
@@ -60,6 +60,7 @@ export class CustomersTable extends React.Component {
                             </div>
                         </td>
                     </tr>
+
             )
         })
     }
@@ -81,18 +82,18 @@ export class CustomersTable extends React.Component {
     render() {
         return (
             <div>
-                {this.showBtn ? (
+                {this.props.showBtn ? (
                     <div className="pb-2" style={{textAlign: "right"}}>
                         <Button className="btn btn-dark" ><i className="pi pi-user-plus mr-2"/>Ajouter nouveau client</Button>
                     </div>
                 ):(
-                    <h2 className="text-center pb-2" for="customers">Listes de clients</h2>
+                    <h2 className="text-center pb-2" >Listes de clients</h2>
                 )}
                 <div>
                     <table className="table-striped table" id='customers'>
                         <tbody>
                         <tr>{this.renderTableHeader()}</tr>
-                        {this.showBtn ? (this.renderTableDataWithButtons()) : (this.renderTableDataWithoutButtons())}
+                        {this.props.showBtn ? (this.renderTableDataWithButtons()) : (this.renderTableDataWithoutButtons())}
                         </tbody>
                     </table>
                 </div>

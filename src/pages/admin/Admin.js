@@ -14,10 +14,10 @@ function Admin() {
                   <CustomersTable showBtn={true}></CustomersTable>
               </TabPanel>
               <TabPanel header="Fabricants">
-                  <ManufacturersTable/>
+                  <ManufacturersTable showBtn={true}></ManufacturersTable>
               </TabPanel>
               <TabPanel header="Utilisateurs">
-                  <UsersTable/>
+                  <UsersTable></UsersTable>
               </TabPanel>
           </TabView>
       </div>

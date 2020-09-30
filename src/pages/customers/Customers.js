@@ -9,7 +9,7 @@ function Customers() {
       <div>
         <TabView activeIndex={0}>
             <TabPanel header="Liste">
-                <CustomersTable></CustomersTable>
+                <CustomersTable showBtn={false}></CustomersTable>
             </TabPanel>
             <TabPanel header="Carte">
                 <PinMap/>
