@@ -9,6 +9,7 @@ import {
 import {Navbar, NavbarText, Nav} from "reactstrap/lib";
 import Home from "../../pages/home/Home";
 import Settings from "../../pages/customers/Customers";
+import MapPage from "../../pages/map/Map";
 import Login from "../../pages/login/Login";
 import AuthService from "../../services/auth-service";
 
@@ -34,6 +35,7 @@ function App() {
                         <div className="mr-3">
                             <NavLink className={'navLink mr-2'} to="/">Home</NavLink>
                             <NavLink className={'navLink mr-2'} to="/settings">Settings</NavLink>
+                            <NavLink className={'navLink mr-2'} to="/map">Map</NavLink>
                         </div>
                         <div>
                             <NavLink className={'navLink'} to="/" onClick={AuthService.logout()}>Log out</NavLink>
@@ -42,6 +44,9 @@ function App() {
                     </Nav>
                 </Navbar>
                     <Switch>
+                        <Route path="/map">
+                            <MapPage/>
+                        </Route>
                         <Route path="/settings">
                             <Settings/>
                         </Route>
