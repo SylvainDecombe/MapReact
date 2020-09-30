@@ -1,14 +1,14 @@
 import React from 'react';
-import logo from "../../logo.svg";
+import troll from "../../troll.png";
 import './Home.css'
 
 function Home() {
     return (
         <div>
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
+                <img src={troll} className="App-logo" alt="logo" />
                 <p>
-                    Edit <code>src/App.js</code> and save to reload.
+                    Edit <code>src/pages/home/Home.js</code>
                 </p>
             </header>
         </div>
