@@ -5,10 +5,26 @@ import {TabPanel, TabView} from "primereact/tabview";
 import {CustomersTable} from "../../components/CustomersTable";
 import {ManufacturersTable} from "../../components/ManufacturersTable";
 import {UsersTable} from "../../components/UsersTable";
+import {UserService} from "../../services/user-service";
+import {ManufacturersService} from "../../services/manufacturers-service";
+import {CustomersService} from "../../services/customers-service";
 
 function Admin() {
     /* Partie Customer */
     const toggleModalCustomerAdd = () => setModalCustomerAdd(!modalCustomerAdd);
+
+    const saveCustomer = () => console.log("saveCustomer");
+    const updateCustomer = () => console.log("updateCustomer");
+    const deleteCustomer = () => console.log("deleteCustomer");
+
+    const saveManufacturer = () => console.log("saveManufacturer");
+    const updateManufacturer = () => console.log("updateManufacturer");
+    const deleteManufacturer = () => console.log("deleteManufacturer");
+
+    const saveUser = () => console.log("saveUser");
+    const updateUser = () => console.log("updateUser");
+    const deleteUser = () => console.log("deleteUser");
+
     const [modalCustomerViewData, setModalCustomerViewData] = useState({});
     const toggleModalCustomerView = (customer) => {
         setModalCustomerViewData(customer);
@@ -103,6 +119,7 @@ function Admin() {
                             </form>
                         </ModalBody>
                         <ModalFooter>
+                            <Button color="success" onClick={saveCustomer}>Créer</Button>
                             <Button color="danger" onClick={toggleModalCustomerAdd}>Fermer</Button>
                         </ModalFooter>
                     </Modal>
@@ -161,7 +178,7 @@ function Admin() {
                             </form>
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="success" onClick={toggleModalCustomerEdit}>Sauvegarder</Button>
+                            <Button color="success" onClick={updateCustomer}>Mettre à jour</Button>
                             <Button color="danger" onClick={toggleModalCustomerEdit}>Fermer</Button>
                         </ModalFooter>
                     </Modal>
@@ -174,7 +191,7 @@ function Admin() {
                             Etes-vous sur de vouloir supprimer le client {modalCustomerDeleteData.name } ?
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="success" onClick={toggleModalCustomerDelete}>Bien sur !</Button>
+                            <Button color="success" onClick={deleteCustomer}>Bien sur !</Button>
                             <Button color="danger" onClick={toggleModalCustomerDelete}>Oups pardon</Button>
                         </ModalFooter>
                     </Modal>
@@ -205,6 +222,7 @@ function Admin() {
                             </form>
                         </ModalBody>
                         <ModalFooter>
+                            <Button color="success" onClick={saveManufacturer}>Créer</Button>
                             <Button color="danger" onClick={toggleModalManufacturerAdd}>Fermer</Button>
                         </ModalFooter>
                     </Modal>
@@ -219,7 +237,7 @@ function Admin() {
                                     <label>Username :</label>
                                     <div className="controls">
                                         <input readOnly={true} id="username" name="username"
-                                               defaultValue={modalCustomerViewData.name }
+                                               defaultValue={modalManufacturerViewData.name }
                                                className="form-control"/>
                                     </div>
                                 </div>
@@ -227,7 +245,7 @@ function Admin() {
                                     <label >E-mail :</label>
                                     <div className="controls">
                                         <input readOnly={true} id="email" name="email"
-                                               defaultValue={modalCustomerViewData.email }
+                                               defaultValue={modalManufacturerViewData.email }
                                                className="form-control"/>
                                     </div>
                                 </div>
@@ -243,9 +261,27 @@ function Admin() {
                     <Modal  isOpen={modalManufacturerEdit} toggle={toggleModalManufacturerEdit} >
                         <ModalHeader toggle={toggleModalManufacturerEdit}>Informations du fabricant</ModalHeader>
                         <ModalBody>
+                            <form className="form-horizontal">
+                                <div className="">
+                                    <label>Username :</label>
+                                    <div className="controls">
+                                        <input id="username" name="username"
+                                               defaultValue={modalManufacturerEditData.name }
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >E-mail :</label>
+                                    <div className="controls">
+                                        <input id="email" name="email"
+                                               defaultValue={modalManufacturerEditData.email }
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                            </form>
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="success" onClick={toggleModalManufacturerEdit}>Sauvegarder</Button>
+                            <Button color="success" onClick={updateManufacturer}>Mettre à jour</Button>
                             <Button color="danger" onClick={toggleModalManufacturerEdit}>Fermer</Button>
                         </ModalFooter>
                     </Modal>
@@ -258,7 +294,7 @@ function Admin() {
                             Etes-vous sur de vouloir supprimer le fabricant {modalManufacturerDeleteData.name } ?
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="success" onClick={toggleModalManufacturerDelete}>Bien sur !</Button>
+                            <Button color="success" onClick={deleteManufacturer}>Bien sur !</Button>
                             <Button color="danger" onClick={toggleModalManufacturerDelete}>Oups pardon</Button>
                         </ModalFooter>
                     </Modal>
@@ -269,7 +305,7 @@ function Admin() {
             <div>
                 <div id="UserAdd">
                     <Modal  isOpen={modalUserAdd} toggle={toggleModalUserAdd} >
-                        <ModalHeader toggle={toggleModalUserAdd}>Informations du client</ModalHeader>
+                        <ModalHeader toggle={toggleModalUserAdd}>Ajouter un nouvel utilisateur</ModalHeader>
                         <ModalBody>
                             <form className="form-horizontal">
                                 <div className="">
@@ -296,6 +332,7 @@ function Admin() {
                             </form>
                         </ModalBody>
                         <ModalFooter>
+                            <Button color="success" onClick={saveUser}>Créer</Button>
                             <Button color="danger" onClick={toggleModalUserAdd}>Fermer</Button>
                         </ModalFooter>
                     </Modal>
@@ -370,7 +407,7 @@ function Admin() {
                             </form>
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="success" onClick={toggleModalUserEdit}>Sauvegarder</Button>
+                            <Button color="success" onClick={updateUser}>Mettre à jour</Button>
                             <Button color="danger" onClick={toggleModalUserEdit}>Fermer</Button>
                         </ModalFooter>
                     </Modal>
@@ -383,7 +420,7 @@ function Admin() {
                             Etes-vous sur de vouloir supprimer l'utilisateur {modalUserDeleteData.name } ?
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="success" onClick={toggleModalUserDelete}>Bien sur !</Button>
+                            <Button color="success" onClick={deleteUser}>Bien sur !</Button>
                             <Button color="danger" onClick={toggleModalUserDelete}>Oups pardon</Button>
                         </ModalFooter>
                     </Modal>

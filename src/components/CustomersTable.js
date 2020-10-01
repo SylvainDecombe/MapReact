@@ -12,10 +12,10 @@ function CustomersTable ({ showBtn,
                              toggleModalCustomerAdd,
                              toggleModalCustomerView,
                              toggleModalCustomerEdit,
-                             toggleModalCustomerDelete}){
+                             toggleModalCustomerDelete,
+                            }){
 
     const [customers, setCustomers] = useState(data);
-
     const view = (id) => toggleModalCustomerView(customers.find(item => item.id === id));
     const edit = (id) => toggleModalCustomerEdit(customers.find(item => item.id === id));
     const deleteCustomer = (id) => toggleModalCustomerDelete(customers.find(item => item.id === id));
