@@ -1,107 +1,77 @@
-import React from 'react';
-import Button from "reactstrap/lib/Button";
-import ManufacturersService from './../services/manufacturers-service';
+import React, {useState} from 'react';
+import { Button, Table } from "reactstrap";
 
-export class ManufacturersTable extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            manufacturer: ManufacturersService.getAllManufacturers(),
-            /** Tableau des fabricants*/
-            manufacturers: [
-                { id: 1, name: 'Wasif', age: 21, email: 'wasif@ghfjgemail.com' },
-                { id: 2, name: 'Ali', age: 19, email: 'ali@email.com' },
-                { id: 3, name: 'Saad', age: 16, email: 'saad@email.com' },
-                { id: 4, name: 'Asad', age: 25, email: 'asad@email.com' }
-            ]
-        }
-        console.log(this.state.manufacturer)
-    }
+const data =  [
+    { id: 1, name: 'Wasif', age: 21, email: 'wasif@ghfjgemail.com' },
+    { id: 2, name: 'Ali', age: 19, email: 'ali@email.com' },
+    { id: 3, name: 'Saad', age: 16, email: 'saad@email.com' },
+    { id: 4, name: 'Asad', age: 25, email: 'asad@email.com' }
+]
 
-    renderTableHeader() {
-        let header = Object.keys(this.state.manufacturers[0])
-        if (this.props.showBtn){
-            header.push(" ");
-        }
-        return header.map((key, index) => {
-            return <th key={index}>{key.toUpperCase()}</th>
-        })
-    }
-
-    edit(){
-        // Ouvrir modal et lui passer (this = Object)
-        console.log(this);
-    }
-
-    show(){
-        // Ouvrir modal et lui passer (this = Object)
-        console.log(this);
-    }
-
-    delete(){
-        // Ouvrir modal et lui passer (this = Object)
-
-        console.log(this);
-    }
+function ManufacturersTable ({ showBtn,
+                             toggleModalManufacturerAdd,
+                             toggleModalManufacturerView,
+                             toggleModalManufacturerEdit,
+                             toggleModalManufacturerDelete}){
 
 
-    renderTableDataWithButtons() {
-        return this.state.manufacturers.map((manufacturers, index) => {
-            const { id, name, age, email } = manufacturers //destructuring
-            return (
-                <tr key={id}>
-                    <td>{id}</td>
-                    <td>{name}</td>
-                    <td>{age}</td>
-                    <td>{email}</td>
-                    <td style={{textAlign: "right"}}>
-                        <div className="btn-group" >
-                            <Button className="btn btn-info" onClick={this.show.bind(this.state.manufacturers[index])}>
-                                <i className="pi pi-eye mr-1"/>Voir</Button>
-                            <Button className="btn btn-warning" onClick={this.edit.bind(this.state.manufacturers[index])}>
-                                <i className="pi pi-pencil mr-1"/>Editer</Button>
-                            <Button className="btn btn-danger" onClick={this.delete.bind(this.state.manufacturers[index])}>
-                                <i className="pi pi-trash mr-1"/>Supprimer</Button>
-                        </div>
-                    </td>
-                </tr>
-            )
-        })
-    }
+    const [manufacturers, setManufacturers] = useState(data);
 
-    renderTableDataWithoutButtons() {
-        return this.state.manufacturers.map((manufacturers, index) => {
-            const { id, name, age, email } = manufacturers //destructuring
-            return (
-                <tr key={id}>
-                    <td>{id}</td>
-                    <td>{name}</td>
-                    <td>{age}</td>
-                    <td>{email}</td>
-                </tr>
-            )
-        })
-    }
+    const view = (id) => toggleModalManufacturerView(manufacturers.find(item => item.id === id));
+    const edit = (id) => toggleModalManufacturerEdit(manufacturers.find(item => item.id === id));
+    const deleteManufacturer = (id) => toggleModalManufacturerDelete(manufacturers.find(item => item.id === id));
 
-    render() {
-        return (
-            <div>
-                {this.props.showBtn ? (
-                    <div className="pb-2" style={{textAlign: "right"}}>
-                        <Button className="btn btn-dark" ><i className="pi pi-user-plus mr-2"/>Ajouter nouveau fabricant</Button>
-                    </div>
-                ):(
-                    <h2 className="text-center pb-2">Liste des fabricants</h2>
-                )}
-                <div>
-                    <table className="table-striped table" id='manufacturers'>
-                        <tbody>
-                        <tr>{this.renderTableHeader()}</tr>
-                        {this.props.showBtn ? (this.renderTableDataWithButtons()) : (this.renderTableDataWithoutButtons())}
-                        </tbody>
-                    </table>
+    return (
+        <>
+            {showBtn ? (
+                <div className="pb-2" style={{textAlign: "right"}}>
+                    <Button className="btn btn-dark" onClick={() => toggleModalManufacturerAdd()}>
+                        <i className="pi pi-user-plus mr-2"/>Ajouter nouveau fabricant
+                    </Button>
                 </div>
-            </div>
-        )
-    }
+            ):(<h2 className="text-center pb-2">Liste des fabricants</h2>)}
+            <Table size="sm" className="table-striped table">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>age</th>
+                    <th>email</th>
+                    {showBtn ? (
+                        <th></th>
+                    ):null}
+                </tr>
+                </thead>
+                <tbody>
+                {
+                    manufacturers.map((manufacturer, index) => (
+                        <tr key={index}>
+                            <td>{manufacturer.id}</td>
+                            <td>{manufacturer.name}</td>
+                            <td>{manufacturer.age}</td>
+                            <td>{manufacturer.email}</td>
+                            {showBtn ? (
+                                <td  style={{textAlign: "right"}}>
+                                    <div className="btn-group">
+                                        <Button className="btn btn-info" onClick={() => view(manufacturer.id)}>
+                                            <i className="pi pi-eye mr-1"/>Voirs</Button>
+                                        <Button className="btn btn-warning" onClick={() => edit(manufacturer.id)}>
+                                            <i className="pi pi-pencil mr-1"/>Editer</Button>
+                                        <Button className="btn btn-danger" onClick={() => deleteManufacturer(manufacturer.id)}>
+                                            <i className="pi pi-trash mr-1"/>Supprimer
+                                        </Button>
+                                    </div>
+                                </td>
+                            ):null}
+                        </tr>
+                    ))
+                }
+                </tbody>
+            </Table>
+        </>
+    )
 }
+
+
+export {ManufacturersTable};
+
