@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Table } from "reactstrap";
+import { Button, Table } from "reactstrap";
 import CustomersService from "./../services/customers-service";
 
 const dataA =  CustomersService.findAll();
@@ -11,7 +11,7 @@ const data =  [
     { id: 4, prenom: 'Asad', nom: 'Baba', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', posy: '90', posx: '16'},
 ];
 
-function CustomersTable ({ showBtn,
+function CustomersTable ({ showBtn,
                              toggleModalCustomerAdd,
                              toggleModalCustomerView,
                              toggleModalCustomerEdit,
