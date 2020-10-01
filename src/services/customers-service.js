@@ -6,9 +6,7 @@ class CustomersService {
 
     findOne() {
         return axios
-            .get(API_URL, {
-                id
-            })
+            .get(API_URL, {})
             .then(response => {
                 console.log(response.data);
                 //return []
@@ -26,10 +24,7 @@ class CustomersService {
 
     update() {
         return axios
-            .post(API_URL, {
-                name,
-                email
-            })
+            .post(API_URL, {})
             .then(response => {
                 console.log(response.data);
                 //return []
@@ -38,9 +33,7 @@ class CustomersService {
 
     delete() {
         return axios
-            .delete(API_URL, {
-                id
-            })
+            .delete(API_URL, {})
             .then(response => {
                 console.log(response.data);
                 //return []

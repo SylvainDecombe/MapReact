@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Table } from "reactstrap";
+import UsersService from "./../services/user-service";
+
+const dataA =  UsersService.findAll();
 
 const data =  [
     { id: 1, firstname: 'Wasif', lastname: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
