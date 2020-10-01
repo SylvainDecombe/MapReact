@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import { Button, Table } from "reactstrap";
 
 const data =  [
-    { id: 1, name: 'Wasif', age: 21, email: 'wasif@ghfjgemail.com' },
-    { id: 2, name: 'Ali', age: 19, email: 'ali@email.com' },
-    { id: 3, name: 'Saad', age: 16, email: 'saad@email.com' },
-    { id: 4, name: 'Asad', age: 25, email: 'asad@email.com' }
-]
+    { id: 1, nom: 'Baba',email: 'test@terst.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', siret: '0000000000000000000X', posx: '12', posy:'80'},
+    { id: 2, nom: 'Baba',email: 'test@terst.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', siret: '0000000000000000000X', posx: '12', posy:'80'},
+    { id: 3, nom: 'Baba',email: 'test@terst.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', siret: '0000000000000000000X', posx: '12', posy:'80'},
+    { id: 4, nom: 'Baba',email: 'test@terst.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', siret: '0000000000000000000X', posx: '12', posy:'80'},
+];
 
 function ManufacturersTable ({ showBtn,
                              toggleModalManufacturerAdd,
@@ -33,10 +33,13 @@ function ManufacturersTable ({ showBtn,
             <Table size="sm" className="table-striped table">
                 <thead>
                 <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>age</th>
-                    <th>email</th>
+                    <th style={{textAlign: "center"}}>Nom</th>
+                    <th style={{textAlign: "center"}}>Téléphone</th>
+                    <th style={{textAlign: "center"}}>Adresse</th>
+                    <th style={{textAlign: "center"}}>Code postal</th>
+                    <th style={{textAlign: "center"}}>Pays</th>
+                    <th style={{textAlign: "center"}}>Ville</th>
+                    <th style={{textAlign: "center"}}>Siret</th>
                     {showBtn ? (
                         <th></th>
                     ):null}
@@ -46,10 +49,13 @@ function ManufacturersTable ({ showBtn,
                 {
                     manufacturers.map((manufacturer, index) => (
                         <tr key={index}>
-                            <td>{manufacturer.id}</td>
-                            <td>{manufacturer.name}</td>
-                            <td>{manufacturer.age}</td>
-                            <td>{manufacturer.email}</td>
+                            <td style={{textAlign: "center"}}>{manufacturer.nom}</td>
+                            <td style={{textAlign: "center"}}>{manufacturer.tel}</td>
+                            <td style={{textAlign: "center"}}>{manufacturer.adresse}</td>
+                            <td style={{textAlign: "center"}}>{manufacturer.postal}</td>
+                            <td style={{textAlign: "center"}}>{manufacturer.pays}</td>
+                            <td style={{textAlign: "center"}}>{manufacturer.ville}</td>
+                            <td style={{textAlign: "center"}}>{manufacturer.siret}</td>
                             {showBtn ? (
                                 <td  style={{textAlign: "right"}}>
                                     <div className="btn-group">

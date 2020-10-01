@@ -102,17 +102,66 @@ function Admin() {
                         <ModalHeader toggle={toggleModalCustomerAdd}>Ajouter un nouveau client</ModalHeader>
                         <ModalBody>
                             <form className="form-horizontal">
-                                <div className="">
-                                    <label>Username :</label>
+                                <div>
+                                    <label>Prénom :</label>
                                     <div className="controls">
-                                        <input id="username" name="username"
+                                        <input id="firstname" name="firstname"
                                                className="form-control"/>
                                     </div>
                                 </div>
-                                <div className=" mt-2">
-                                    <label >E-mail :</label>
+                                <div>
+                                    <label >Nom :</label>
                                     <div className="controls">
                                         <input id="email" name="email"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Téléphone :</label>
+                                    <div className="controls">
+                                        <input id="tel" name="tel"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Adresse :</label>
+                                    <div className="controls">
+                                        <input id="adresse" name="adresse"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Code postal :</label>
+                                    <div className="controls">
+                                        <input id="postal" name="postal"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Pays :</label>
+                                    <div className="controls">
+                                        <input id="pays" name="pays"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Ville :</label>
+                                    <div className="controls">
+                                        <input id="ville" name="ville"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Position X :</label>
+                                    <div className="controls">
+                                        <input id="posx" name="posx"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Position Y :</label>
+                                    <div className="controls">
+                                        <input id="posy" name="posy"
                                                className="form-control"/>
                                     </div>
                                 </div>
@@ -130,22 +179,87 @@ function Admin() {
                         <ModalHeader toggle={toggleModalCustomerView}>Informations du client</ModalHeader>
                         <ModalBody>
                             <form className="form-horizontal">
-                                    <div className="">
-                                        <label>Username :</label>
-                                        <div className="controls">
-                                            <input readOnly={true} id="username" name="username"
-                                                   defaultValue={modalCustomerViewData.name }
-                                                    className="form-control"/>
-                                        </div>
+                                <div>
+                                    <label>Prénom :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="prenom" name="prenom"
+                                               className="form-control"
+                                               defaultValue={modalCustomerViewData.prenom}
+                                        />
                                     </div>
-                                    <div className=" mt-2">
-                                        <label >E-mail :</label>
-                                        <div className="controls">
-                                            <input readOnly={true} id="email" name="email"
-                                                   defaultValue={modalCustomerViewData.email }
-                                                   className="form-control"/>
-                                        </div>
+                                </div>
+                                <div>
+                                    <label>Nom :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="nom" name="nom"
+                                               className="form-control"
+                                               defaultValue={modalCustomerViewData.nom}
+                                        />
                                     </div>
+                                </div>
+                                <div>
+                                    <label >Téléphone :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="tel" name="tel"
+                                               className="form-control"
+                                               defaultValue={modalCustomerViewData.tel}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Adresse :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="adresse" name="adresse"
+                                               className="form-control"
+                                               defaultValue={modalCustomerViewData.adresse}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Code postal :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="postal" name="postal"
+                                               className="form-control"
+                                               defaultValue={modalCustomerViewData.postal}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Pays :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="pays" name="pays"
+                                               className="form-control"
+                                               defaultValue={modalCustomerViewData.pays}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Ville :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="ville" name="ville"
+                                               className="form-control"
+                                               defaultValue={modalCustomerViewData.ville}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Position X :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="posx" name="posx"
+                                               className="form-control"
+                                               defaultValue={modalCustomerViewData.posx}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Position Y :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="posy" name="posy"
+                                               className="form-control"
+                                               defaultValue={modalCustomerViewData.posy}
+                                        />
+                                    </div>
+                                </div>
                             </form>
                         </ModalBody>
                         <ModalFooter>
@@ -159,20 +273,85 @@ function Admin() {
                         <ModalHeader toggle={toggleModalCustomerEdit}>Informations du client</ModalHeader>
                         <ModalBody>
                             <form className="form-horizontal">
-                                <div className="">
-                                    <label>Username :</label>
+                                <div>
+                                    <label>Prénom :</label>
                                     <div className="controls">
-                                        <input id="username" name="username"
-                                               defaultValue={modalCustomerEditData.name }
-                                               className="form-control"/>
+                                        <input id="prenom" name="prenom"
+                                               className="form-control"
+                                               defaultValue={modalCustomerEditData.prenom}
+                                        />
                                     </div>
                                 </div>
-                                <div className=" mt-2">
-                                    <label >E-mail :</label>
+                                <div>
+                                    <label>Nom :</label>
                                     <div className="controls">
-                                        <input id="email" name="email"
-                                               defaultValue={modalCustomerEditData.email }
-                                               className="form-control"/>
+                                        <input id="nom" name="nom"
+                                               className="form-control"
+                                               defaultValue={modalCustomerEditData.nom}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label >Téléphone :</label>
+                                    <div className="controls">
+                                        <input id="tel" name="tel"
+                                               className="form-control"
+                                               defaultValue={modalCustomerEditData.tel}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Adresse :</label>
+                                    <div className="controls">
+                                        <input id="adresse" name="adresse"
+                                               className="form-control"
+                                               defaultValue={modalCustomerEditData.adresse}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Code postal :</label>
+                                    <div className="controls">
+                                        <input id="postal" name="postal"
+                                               className="form-control"
+                                               defaultValue={modalCustomerEditData.postal}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Pays :</label>
+                                    <div className="controls">
+                                        <input id="pays" name="pays"
+                                               className="form-control"
+                                               defaultValue={modalCustomerEditData.pays}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Ville :</label>
+                                    <div className="controls">
+                                        <input id="ville" name="ville"
+                                               className="form-control"
+                                               defaultValue={modalCustomerEditData.ville}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Position X :</label>
+                                    <div className="controls">
+                                        <input id="posx" name="posx"
+                                               className="form-control"
+                                               defaultValue={modalCustomerEditData.posx}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Position Y :</label>
+                                    <div className="controls">
+                                        <input id="posy" name="posy"
+                                               className="form-control"
+                                               defaultValue={modalCustomerEditData.posy}
+                                        />
                                     </div>
                                 </div>
                             </form>
@@ -205,17 +384,66 @@ function Admin() {
                         <ModalHeader toggle={toggleModalManufacturerAdd}>Ajouter un nouveau fabricant</ModalHeader>
                         <ModalBody>
                             <form className="form-horizontal">
-                                <div className="">
-                                    <label>Username :</label>
+                                <div>
+                                    <label >Nom :</label>
                                     <div className="controls">
-                                        <input id="username" name="username"
+                                        <input id="email" name="email"
                                                className="form-control"/>
                                     </div>
                                 </div>
-                                <div className=" mt-2">
-                                    <label >E-mail :</label>
+                                <div>
+                                    <label>Email :</label>
                                     <div className="controls">
                                         <input id="email" name="email"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Adresse :</label>
+                                    <div className="controls">
+                                        <input id="adresse" name="adresse"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Code postal :</label>
+                                    <div className="controls">
+                                        <input id="postal" name="postal"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Ville :</label>
+                                    <div className="controls">
+                                        <input id="ville" name="ville"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Pays :</label>
+                                    <div className="controls">
+                                        <input id="pays" name="pays"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Siret :</label>
+                                    <div className="controls">
+                                        <input id="siret" name="siret"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Position X :</label>
+                                    <div className="controls">
+                                        <input id="posx" name="posx"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Position Y :</label>
+                                    <div className="controls">
+                                        <input id="posy" name="posy"
                                                className="form-control"/>
                                     </div>
                                 </div>
@@ -233,20 +461,85 @@ function Admin() {
                         <ModalHeader toggle={toggleModalManufacturerView}>Informations du fabricant</ModalHeader>
                         <ModalBody>
                             <form className="form-horizontal">
-                                <div className="">
-                                    <label>Username :</label>
+                                <div>
+                                    <label >Nom :</label>
                                     <div className="controls">
-                                        <input readOnly={true} id="username" name="username"
-                                               defaultValue={modalManufacturerViewData.name }
-                                               className="form-control"/>
+                                        <input readOnly={true} id="nom" name="nom"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerViewData.nom}
+                                        />
                                     </div>
                                 </div>
-                                <div className=" mt-2">
-                                    <label >E-mail :</label>
+                                <div>
+                                    <label>Email :</label>
                                     <div className="controls">
                                         <input readOnly={true} id="email" name="email"
-                                               defaultValue={modalManufacturerViewData.email }
-                                               className="form-control"/>
+                                               className="form-control"
+                                               defaultValue={modalManufacturerViewData.email}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Adresse :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="adresse" name="adresse"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerViewData.adresse}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Code postal :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="postal" name="postal"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerViewData.postal}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Ville :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="ville" name="ville"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerViewData.ville}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Pays :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="pays" name="pays"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerViewData.pays}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Siret :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="siret" name="siret"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerViewData.siret}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Position X :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="posx" name="posx"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerViewData.posx}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Position Y :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="posy" name="posy"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerViewData.posy}
+                                        />
                                     </div>
                                 </div>
                             </form>
@@ -262,20 +555,85 @@ function Admin() {
                         <ModalHeader toggle={toggleModalManufacturerEdit}>Informations du fabricant</ModalHeader>
                         <ModalBody>
                             <form className="form-horizontal">
-                                <div className="">
-                                    <label>Username :</label>
+                                <div>
+                                    <label >Nom :</label>
                                     <div className="controls">
-                                        <input id="username" name="username"
-                                               defaultValue={modalManufacturerEditData.name }
-                                               className="form-control"/>
+                                        <input id="nom" name="nom"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerEditData.nom}
+                                        />
                                     </div>
                                 </div>
-                                <div className=" mt-2">
-                                    <label >E-mail :</label>
+                                <div>
+                                    <label>Email :</label>
                                     <div className="controls">
                                         <input id="email" name="email"
-                                               defaultValue={modalManufacturerEditData.email }
-                                               className="form-control"/>
+                                               className="form-control"
+                                               defaultValue={modalManufacturerEditData.email}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Adresse :</label>
+                                    <div className="controls">
+                                        <input id="adresse" name="adresse"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerEditData.adresse}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Code postal :</label>
+                                    <div className="controls">
+                                        <input id="postal" name="postal"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerEditData.postal}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Ville :</label>
+                                    <div className="controls">
+                                        <input id="ville" name="ville"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerEditData.ville}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Pays :</label>
+                                    <div className="controls">
+                                        <input id="pays" name="pays"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerEditData.pays}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Siret :</label>
+                                    <div className="controls">
+                                        <input id="siret" name="siret"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerEditData.siret}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Position X :</label>
+                                    <div className="controls">
+                                        <input id="posx" name="posx"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerEditData.posx}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Position Y :</label>
+                                    <div className="controls">
+                                        <input id="posy" name="posy"
+                                               className="form-control"
+                                               defaultValue={modalManufacturerEditData.posy}
+                                        />
                                     </div>
                                 </div>
                             </form>
@@ -309,16 +667,58 @@ function Admin() {
                         <ModalBody>
                             <form className="form-horizontal">
                                 <div className="">
-                                    <label>Username :</label>
+                                    <label>Prénom :</label>
                                     <div className="controls">
-                                        <input id="username" name="username"
+                                        <input id="firstname" name="firstname"
                                                className="form-control"/>
                                     </div>
                                 </div>
                                 <div className=" mt-2">
-                                    <label >E-mail :</label>
+                                    <label >Nom :</label>
+                                    <div className="controls">
+                                        <input id="lastname" name="lastname"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Mot de passe :</label>
+                                    <div className="controls">
+                                        <input id="password" name="password"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Email :</label>
                                     <div className="controls">
                                         <input id="email" name="email"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Téléphone :</label>
+                                    <div className="controls">
+                                        <input id="tel" name="tel"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Adresse :</label>
+                                    <div className="controls">
+                                        <input id="adresse" name="adresse"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Code postal :</label>
+                                    <div className="controls">
+                                        <input id="postal" name="postal"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Ville :</label>
+                                    <div className="controls">
+                                        <input id="ville" name="ville"
                                                className="form-control"/>
                                     </div>
                                 </div>
@@ -340,31 +740,79 @@ function Admin() {
                 
                 <div id="UserView">
                     <Modal  isOpen={modalUserView} toggle={toggleModalUserView} >
-                        <ModalHeader toggle={toggleModalUserView}>Informations du client</ModalHeader>
+                        <ModalHeader toggle={toggleModalUserView}>Informations de l'utilisateur</ModalHeader>
                         <ModalBody>
                             <form className="form-horizontal">
                                 <div className="">
-                                    <label>Username :</label>
+                                    <label>Prénom :</label>
                                     <div className="controls">
-                                        <input readOnly={true} id="username" name="username"
-                                               defaultValue={modalUserViewData.name }
-                                               className="form-control"/>
+                                        <input readOnly={true} id="firstname" name="firstname"
+                                               className="form-control"
+                                               defaultValue={modalUserViewData.firstname}
+                                        />
                                     </div>
                                 </div>
                                 <div className=" mt-2">
-                                    <label >E-mail :</label>
+                                    <label >Nom :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="lastname" name="lastname"
+                                               className="form-control"
+                                               defaultValue={modalUserViewData.lastname}
+                                        />
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Email :</label>
                                     <div className="controls">
                                         <input readOnly={true} id="email" name="email"
-                                               defaultValue={modalUserViewData.email }
-                                               className="form-control"/>
+                                               className="form-control"
+                                               defaultValue={modalUserViewData.email}
+                                        />
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Téléphone :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="tel" name="tel"
+                                               className="form-control"
+                                               defaultValue={modalUserViewData.tel}
+                                        />
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Adresse :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="adresse" name="adresse"
+                                               className="form-control"
+                                               defaultValue={modalUserViewData.adresse}
+                                        />
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Code postal :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="postal" name="postal"
+                                               className="form-control"
+                                               defaultValue={modalUserViewData.postal}
+                                        />
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Ville :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="ville" name="ville"
+                                               className="form-control"
+                                               defaultValue={modalUserViewData.ville}
+                                        />
                                     </div>
                                 </div>
                                 <div className=" mt-2">
                                     <label >Rôle :</label>
                                     <div className="controls">
                                         <input readOnly={true} id="role" name="role"
-                                               defaultValue={modalUserViewData.email }
-                                               className="form-control"/>
+                                               className="form-control"
+                                               defaultValue={modalUserViewData.role}
+                                        />
                                     </div>
                                 </div>
                             </form>
@@ -377,31 +825,79 @@ function Admin() {
 
                 <div id="UserEdit">
                     <Modal  isOpen={modalUserEdit} toggle={toggleModalUserEdit} >
-                        <ModalHeader toggle={toggleModalUserEdit}>Informations du client</ModalHeader>
+                        <ModalHeader toggle={toggleModalUserEdit}>Mettre à jour l'utilisateur</ModalHeader>
                         <ModalBody>
                             <form className="form-horizontal">
                                 <div className="">
-                                    <label>Username :</label>
+                                    <label>Prénom :</label>
                                     <div className="controls">
-                                        <input id="username" name="username"
-                                               defaultValue={modalUserEditData.name }
-                                               className="form-control"/>
+                                        <input id="firstname" name="firstname"
+                                               className="form-control"
+                                               defaultValue={modalUserEditData.firstname}
+                                        />
                                     </div>
                                 </div>
                                 <div className=" mt-2">
-                                    <label >E-mail :</label>
+                                    <label >Nom :</label>
+                                    <div className="controls">
+                                        <input id="lastname" name="lastname"
+                                               className="form-control"
+                                               defaultValue={modalUserEditData.lastname}
+                                        />
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Email :</label>
                                     <div className="controls">
                                         <input id="email" name="email"
-                                               defaultValue={modalUserEditData.email }
-                                               className="form-control"/>
+                                               className="form-control"
+                                               defaultValue={modalUserEditData.email}
+                                        />
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Téléphone :</label>
+                                    <div className="controls">
+                                        <input id="tel" name="tel"
+                                               className="form-control"
+                                               defaultValue={modalUserEditData.tel}
+                                        />
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Adresse :</label>
+                                    <div className="controls">
+                                        <input id="adresse" name="adresse"
+                                               className="form-control"
+                                               defaultValue={modalUserEditData.adresse}
+                                        />
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Code postal :</label>
+                                    <div className="controls">
+                                        <input id="postal" name="postal"
+                                               className="form-control"
+                                               defaultValue={modalUserEditData.postal}
+                                        />
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Ville :</label>
+                                    <div className="controls">
+                                        <input id="ville" name="ville"
+                                               className="form-control"
+                                               defaultValue={modalUserEditData.ville}
+                                        />
                                     </div>
                                 </div>
                                 <div className=" mt-2">
                                     <label >Rôle :</label>
                                     <div className="controls">
                                         <input id="role" name="role"
-                                               defaultValue={modalUserEditData.email }
-                                               className="form-control"/>
+                                               className="form-control"
+                                               defaultValue={modalUserEditData.role}
+                                        />
                                     </div>
                                 </div>
                             </form>
@@ -415,7 +911,7 @@ function Admin() {
 
                 <div id="UserDelete">
                     <Modal  isOpen={modalUserDelete} toggle={toggleModalUserDelete} >
-                        <ModalHeader toggle={toggleModalUserDelete}>Supprimer le client</ModalHeader>
+                        <ModalHeader toggle={toggleModalUserDelete}>Supprimer l'utilisateur</ModalHeader>
                         <ModalBody>
                             Etes-vous sur de vouloir supprimer l'utilisateur {modalUserDeleteData.name } ?
                         </ModalBody>

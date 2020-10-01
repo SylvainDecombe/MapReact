@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Button, Table } from "reactstrap";
 
 const data =  [
-    { id: 1, name: 'Wasif', age: 21, email: 'wasif@ghfjgemail.com' },
-    { id: 2, name: 'Ali', age: 19, email: 'ali@email.com' },
-    { id: 3, name: 'Saad', age: 16, email: 'saad@email.com' },
-    { id: 4, name: 'Asad', age: 25, email: 'asad@email.com' }
+    { id: 1, prenom: 'Wasif', nom: 'Baba', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', posy: '90', posx: '16'},
+    { id: 2, prenom: 'Ali', nom: 'Baba', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', posy: '90', posx: '16'},
+    { id: 3, prenom: 'Saad', nom: 'Baba', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', posy: '90', posx: '16'},
+    { id: 4, prenom: 'Asad', nom: 'Baba', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', posy: '90', posx: '16'},
 ];
 
 function CustomersTable ({ showBtn,
@@ -32,10 +32,13 @@ function CustomersTable ({ showBtn,
             <Table size="sm" className="table-striped table">
                 <thead>
                 <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>age</th>
-                    <th>email</th>
+                    <th style={{textAlign: "center"}}>Prénom</th>
+                    <th style={{textAlign: "center"}}>Nom</th>
+                    <th style={{textAlign: "center"}}>Téléphone</th>
+                    <th style={{textAlign: "center"}}>Adresse</th>
+                    <th style={{textAlign: "center"}}>Code postal</th>
+                    <th style={{textAlign: "center"}}>Pays</th>
+                    <th style={{textAlign: "center"}}>Ville</th>
                     {showBtn ? (
                     <th></th>
                     ):null}
@@ -45,10 +48,13 @@ function CustomersTable ({ showBtn,
                 {
                     customers.map((customer, index) => (
                         <tr key={index}>
-                            <td>{customer.id}</td>
-                            <td>{customer.name}</td>
-                            <td>{customer.age}</td>
-                            <td>{customer.email}</td>
+                            <td style={{textAlign: "center"}}>{customer.prenom}</td>
+                            <td style={{textAlign: "center"}}>{customer.nom}</td>
+                            <td style={{textAlign: "center"}}>{customer.tel}</td>
+                            <td style={{textAlign: "center"}}>{customer.adresse}</td>
+                            <td style={{textAlign: "center"}}>{customer.postal}</td>
+                            <td style={{textAlign: "center"}}>{customer.pays}</td>
+                            <td style={{textAlign: "center"}}>{customer.ville}</td>
                             {showBtn ? (
                             <td  style={{textAlign: "right"}}>
                                 <div className="btn-group">

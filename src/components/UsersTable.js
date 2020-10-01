@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Button, Table } from "reactstrap";
 
 const data =  [
-    { id: 1, name: 'Wasif', age: 21, email: 'wasif@ghfjgemail.com' },
-    { id: 2, name: 'Ali', age: 19, email: 'ali@email.com' },
-    { id: 3, name: 'Saad', age: 16, email: 'saad@email.com' },
-    { id: 4, name: 'Asad', age: 25, email: 'asad@email.com' }
+    { id: 1, firstname: 'Wasif', lastname: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
+    { id: 2, firstname: 'Ali', lastname: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
+    { id: 3, firstname: 'Saad', lastname: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
+    { id: 4, firstname: 'Asad', lastname: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
 ];
 
 function UsersTable ({ showBtn,
@@ -32,10 +32,13 @@ function UsersTable ({ showBtn,
             <Table size="sm" className="table-striped table">
                 <thead>
                 <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>age</th>
-                    <th>email</th>
+                    <th style={{textAlign: "center"}}>Prénom</th>
+                    <th style={{textAlign: "center"}}>Nom</th>
+                    <th style={{textAlign: "center"}}>Email</th>
+                    <th style={{textAlign: "center"}}>Téléphone</th>
+                    <th style={{textAlign: "center"}}>Adresse</th>
+                    <th style={{textAlign: "center"}}>Code postal</th>
+                    <th style={{textAlign: "center"}}>Ville</th>
                     {showBtn ? (
                         <th></th>
                     ):null}
@@ -45,12 +48,15 @@ function UsersTable ({ showBtn,
                 {
                     users.map((user, index) => (
                         <tr key={index}>
-                            <td>{user.id}</td>
-                            <td>{user.name}</td>
-                            <td>{user.age}</td>
-                            <td>{user.email}</td>
+                            <td style={{textAlign: "center"}}>{user.firstname}</td>
+                            <td style={{textAlign: "center"}}>{user.lastname}</td>
+                            <td style={{textAlign: "center"}}>{user.email}</td>
+                            <td style={{textAlign: "center"}}>{user.tel}</td>
+                            <td style={{textAlign: "center"}}>{user.adresse}</td>
+                            <td style={{textAlign: "center"}}>{user.postal}</td>
+                            <td style={{textAlign: "center"}}>{user.ville}</td>
                             {showBtn ? (
-                                <td  style={{textAlign: "right"}}>
+                                <td style={{textAlign: "right"}}>
                                     <div className="btn-group">
                                         <Button className="btn btn-info" onClick={() => view(user.id)}>
                                             <i className="pi pi-eye mr-1"/>Voirs</Button>
