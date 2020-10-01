@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api/customers/';
+const API_URL = 'http://localhost:8081/api/customer/';
 
 class CustomersService {
 
@@ -22,11 +22,12 @@ class CustomersService {
             });
     }
 
-    update() {
+    update(customer) {
+        console.log(customer);
         return axios
-            .post(API_URL, {})
+            .post(API_URL, { customer })
             .then(response => {
-                console.log(response.data);
+
                 //return []
             });
     }
