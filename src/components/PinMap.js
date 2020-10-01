@@ -21,7 +21,8 @@ const MyMarkersList = ( {markers} ) => {
 
 var iconMarker = Lefleat.icon({
     iconUrl: 'https://www.iconpacks.net/icons/2/free-pine-icon-1577-thumb.png',
-    iconSize: [38, 95], // size of the icon
+    iconSize: [38, 95], // size of the icon    
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
 });
 
 export class PinMap extends React.Component {
