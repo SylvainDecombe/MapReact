@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Button, Table } from "reactstrap";
+import { Button, Table } from "reactstrap";
 import ManufacturersService from "./../services/manufacturers-service";
 
 const dataA =  ManufacturersService.findAll();
@@ -11,7 +11,7 @@ const data =  [
     { id: 4, nom: 'Baba',email: 'test@terst.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', siret: '0000000000000000000X', posx: '12', posy:'80'},
 ];
 
-function ManufacturersTable ({ showBtn,
+function ManufacturersTable ({ showBtn,
                              toggleModalManufacturerAdd,
                              toggleModalManufacturerView,
                              toggleModalManufacturerEdit,
@@ -83,4 +83,3 @@ function ManufacturersTable ({ showBtn,
 
 
 export {ManufacturersTable};
-

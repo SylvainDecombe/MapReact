@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-import {TabPanel, TabView} from "primereact/tabview";
-import {CustomersTable} from "../../components/CustomersTable";
-import {ManufacturersTable} from "../../components/ManufacturersTable";
-import {UsersTable} from "../../components/UsersTable";
-import {UserService} from "../../services/user-service";
-import {ManufacturersService} from "../../services/manufacturers-service";
-import {CustomersService} from "../../services/customers-service";
+import { TabPanel, TabView } from "primereact/tabview";
+import { CustomersTable } from "../../components/CustomersTable";
+import { ManufacturersTable } from "../../components/ManufacturersTable";
+import { UsersTable } from "../../components/UsersTable";
+import { UserService } from "../../services/user-service";
+import { ManufacturersService } from "../../services/manufacturers-service";
+import CustomersService from "../../services/customers-service";
 
 function Admin() {
     /* Partie Customer */

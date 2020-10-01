@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Table } from "reactstrap";
+import {  Button, Table } from "reactstrap";
 import UsersService from "./../services/user-service";
 
-const dataA =  UsersService.findAll();
+//const dataA =  UsersService.findAll();
 
 const data =  [
     { id: 1, prenom: 'Wasif', nom: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
@@ -11,11 +11,13 @@ const data =  [
     { id: 4, prenom: 'Asad', nom: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
 ];
 
-function UsersTable ({ showBtn,
-                             toggleModalUserAdd,
-                             toggleModalUserView,
-                             toggleModalUserEdit,
-                             toggleModalUserDelete}){
+function UsersTable({ 
+    showBtn,
+    toggleModalUserAdd,
+    toggleModalUserView,
+    toggleModalUserEdit,
+    toggleModalUserDelete
+}) {
 
     const [users, setUsers] = useState(data);
 
@@ -51,8 +53,8 @@ function UsersTable ({ showBtn,
                 {
                     users.map((user, index) => (
                         <tr key={index}>
-                            <td style={{textAlign: "center"}}>{user.prenom}</td>
-                            <td style={{textAlign: "center"}}>{user.nom}</td>
+                            <td style={{textAlign: "center"}}>{user.firstname}</td>
+                            <td style={{textAlign: "center"}}>{user.lastname}</td>
                             <td style={{textAlign: "center"}}>{user.email}</td>
                             <td style={{textAlign: "center"}}>{user.tel}</td>
                             <td style={{textAlign: "center"}}>{user.adresse}</td>
@@ -81,4 +83,4 @@ function UsersTable ({ showBtn,
 }
 
 
-export {UsersTable};
+            export { UsersTable };
