@@ -5,10 +5,10 @@ import UsersService from "./../services/user-service";
 const dataA =  UsersService.findAll();
 
 const data =  [
-    { id: 1, firstname: 'Wasif', lastname: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
-    { id: 2, firstname: 'Ali', lastname: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
-    { id: 3, firstname: 'Saad', lastname: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
-    { id: 4, firstname: 'Asad', lastname: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
+    { id: 1, prenom: 'Wasif', nom: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
+    { id: 2, prenom: 'Ali', nom: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
+    { id: 3, prenom: 'Saad', nom: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
+    { id: 4, prenom: 'Asad', nom: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
 ];
 
 function UsersTable ({ showBtn,
@@ -51,8 +51,8 @@ function UsersTable ({ showBtn,
                 {
                     users.map((user, index) => (
                         <tr key={index}>
-                            <td style={{textAlign: "center"}}>{user.firstname}</td>
-                            <td style={{textAlign: "center"}}>{user.lastname}</td>
+                            <td style={{textAlign: "center"}}>{user.prenom}</td>
+                            <td style={{textAlign: "center"}}>{user.nom}</td>
                             <td style={{textAlign: "center"}}>{user.email}</td>
                             <td style={{textAlign: "center"}}>{user.tel}</td>
                             <td style={{textAlign: "center"}}>{user.adresse}</td>

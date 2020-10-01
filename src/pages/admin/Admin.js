@@ -669,14 +669,14 @@ function Admin() {
                                 <div className="">
                                     <label>Prénom :</label>
                                     <div className="controls">
-                                        <input id="firstname" name="firstname"
+                                        <input id="prenom" name="prenom"
                                                className="form-control"/>
                                     </div>
                                 </div>
                                 <div className=" mt-2">
                                     <label >Nom :</label>
                                     <div className="controls">
-                                        <input id="lastname" name="lastname"
+                                        <input id="nom" name="nom"
                                                className="form-control"/>
                                     </div>
                                 </div>
@@ -746,18 +746,18 @@ function Admin() {
                                 <div className="">
                                     <label>Prénom :</label>
                                     <div className="controls">
-                                        <input readOnly={true} id="firstname" name="firstname"
+                                        <input readOnly={true} id="prenom" name="prenom"
                                                className="form-control"
-                                               defaultValue={modalUserViewData.firstname}
+                                               defaultValue={modalUserViewData.prenom}
                                         />
                                     </div>
                                 </div>
                                 <div className=" mt-2">
                                     <label >Nom :</label>
                                     <div className="controls">
-                                        <input readOnly={true} id="lastname" name="lastname"
+                                        <input readOnly={true} id="nom" name="nom"
                                                className="form-control"
-                                               defaultValue={modalUserViewData.lastname}
+                                               defaultValue={modalUserViewData.nom}
                                         />
                                     </div>
                                 </div>
@@ -831,18 +831,18 @@ function Admin() {
                                 <div className="">
                                     <label>Prénom :</label>
                                     <div className="controls">
-                                        <input id="firstname" name="firstname"
+                                        <input id="prenom" name="prenom"
                                                className="form-control"
-                                               defaultValue={modalUserEditData.firstname}
+                                               defaultValue={modalUserEditData.prenom}
                                         />
                                     </div>
                                 </div>
                                 <div className=" mt-2">
                                     <label >Nom :</label>
                                     <div className="controls">
-                                        <input id="lastname" name="lastname"
+                                        <input id="nom" name="nom"
                                                className="form-control"
-                                               defaultValue={modalUserEditData.lastname}
+                                               defaultValue={modalUserEditData.nom}
                                         />
                                     </div>
                                 </div>
