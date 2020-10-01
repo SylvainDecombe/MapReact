@@ -5,11 +5,9 @@ import {TabPanel, TabView} from "primereact/tabview";
 import {CustomersTable} from "../../components/CustomersTable";
 import {ManufacturersTable} from "../../components/ManufacturersTable";
 import {UsersTable} from "../../components/UsersTable";
-import ModalAddCustomer from "../../components/ModalAddCustomer";
-
 
 function Admin() {
-    // Partie Customer
+    /* Partie Customer */
     const toggleModalCustomerAdd = () => setModalCustomerAdd(!modalCustomerAdd);
     const [modalCustomerViewData, setModalCustomerViewData] = useState({});
     const toggleModalCustomerView = (customer) => {
@@ -33,7 +31,7 @@ function Admin() {
 
 
 
-    // Partie Manufacturer
+    /* Partie Manufacturer*/
     const toggleModalManufacturerAdd = () => setModalManufacturerAdd(!modalManufacturerAdd);
     const [modalManufacturerViewData, setModalManufacturerViewData] = useState({});
     const toggleModalManufacturerView = (manufacturer) => {
@@ -55,7 +53,7 @@ function Admin() {
     const [modalManufacturerView, setModalManufacturerView] = useState(false);
     const [modalManufacturerAdd, setModalManufacturerAdd] = useState(false);
 
-    // Partie User
+    /* Partie User */
     const toggleModalUserAdd = () => setModalUserAdd(!modalUserAdd);
     const [modalUserViewData, setModalUserViewData] = useState({});
     const toggleModalUserView = (user) => {
@@ -81,11 +79,35 @@ function Admin() {
 
     return (
         <>
-            /** TODO Implementer modal d'ajout en temps que composant*/
-            {/*<ModalAddCustomer toggleModalCustomerAdd={toggleModalCustomerAdd} modalAdd={modalAdd}></ModalAddCustomer>*/}
-
             {/*Customer*/}
             <div>
+                <div id="CustomerAdd">
+                    <Modal  isOpen={modalCustomerAdd} toggle={toggleModalCustomerAdd} >
+                        <ModalHeader toggle={toggleModalCustomerAdd}>Ajouter un nouveau client</ModalHeader>
+                        <ModalBody>
+                            <form className="form-horizontal">
+                                <div className="">
+                                    <label>Username :</label>
+                                    <div className="controls">
+                                        <input id="username" name="username"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >E-mail :</label>
+                                    <div className="controls">
+                                        <input id="email" name="email"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="danger" onClick={toggleModalCustomerAdd}>Fermer</Button>
+                        </ModalFooter>
+                    </Modal>
+                </div>
+
                 <div id="CustomerView">
                     <Modal  isOpen={modalCustomerView} toggle={toggleModalCustomerView} >
                         <ModalHeader toggle={toggleModalCustomerView}>Informations du client</ModalHeader>
@@ -107,14 +129,6 @@ function Admin() {
                                                    className="form-control"/>
                                         </div>
                                     </div>
-                                    <div className=" mt-2">
-                                        <label >Rôle :</label>
-                                        <div className="controls">
-                                            <input readOnly={true} id="role" name="role"
-                                                   defaultValue={modalCustomerViewData.email }
-                                                   className="form-control"/>
-                                        </div>
-                                    </div>
                             </form>
                         </ModalBody>
                         <ModalFooter>
@@ -127,9 +141,24 @@ function Admin() {
                     <Modal  isOpen={modalCustomerEdit} toggle={toggleModalCustomerEdit} >
                         <ModalHeader toggle={toggleModalCustomerEdit}>Informations du client</ModalHeader>
                         <ModalBody>
-                            <p>{modalCustomerEditData.name }</p>
-                            <p>{modalCustomerEditData.email }</p>
-                            AHAHA ICI ON VAS AVOIR LE FORMULAIRE AVEC LES INFORMATIONS DU CLIENT
+                            <form className="form-horizontal">
+                                <div className="">
+                                    <label>Username :</label>
+                                    <div className="controls">
+                                        <input id="username" name="username"
+                                               defaultValue={modalCustomerEditData.name }
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >E-mail :</label>
+                                    <div className="controls">
+                                        <input id="email" name="email"
+                                               defaultValue={modalCustomerEditData.email }
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                            </form>
                         </ModalBody>
                         <ModalFooter>
                             <Button color="success" onClick={toggleModalCustomerEdit}>Sauvegarder</Button>
@@ -142,9 +171,7 @@ function Admin() {
                     <Modal  isOpen={modalCustomerDelete} toggle={toggleModalCustomerDelete} >
                         <ModalHeader toggle={toggleModalCustomerDelete}>Supprimer le client</ModalHeader>
                         <ModalBody>
-                            <p>{modalCustomerDeleteData.name }</p>
-                            <p>{modalCustomerDeleteData.email }</p>
-                            Etes-vous sur de vouloir supprimer ce client ?
+                            Etes-vous sur de vouloir supprimer le client {modalCustomerDeleteData.name } ?
                         </ModalBody>
                         <ModalFooter>
                             <Button color="success" onClick={toggleModalCustomerDelete}>Bien sur !</Button>
@@ -153,15 +180,58 @@ function Admin() {
                     </Modal>
                 </div>
             </div>
+
             {/*Manufacturer*/}
             <div>
+                <div id="ManufacturerAdd">
+                    <Modal  isOpen={modalManufacturerAdd} toggle={toggleModalManufacturerAdd} >
+                        <ModalHeader toggle={toggleModalManufacturerAdd}>Ajouter un nouveau fabricant</ModalHeader>
+                        <ModalBody>
+                            <form className="form-horizontal">
+                                <div className="">
+                                    <label>Username :</label>
+                                    <div className="controls">
+                                        <input id="username" name="username"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >E-mail :</label>
+                                    <div className="controls">
+                                        <input id="email" name="email"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="danger" onClick={toggleModalManufacturerAdd}>Fermer</Button>
+                        </ModalFooter>
+                    </Modal>
+                </div>
+                
                 <div id="ManufacturerView">
                     <Modal  isOpen={modalManufacturerView} toggle={toggleModalManufacturerView} >
-                        <ModalHeader toggle={toggleModalManufacturerView}>Informations du client</ModalHeader>
+                        <ModalHeader toggle={toggleModalManufacturerView}>Informations du fabricant</ModalHeader>
                         <ModalBody>
-                            <p>{modalManufacturerViewData.name }</p>
-                            <p>{modalManufacturerViewData.email }</p>
-                            AHAHA ICI ON VAS AVOIR LES INFORMATIONS DU Manufacturer
+                            <form className="form-horizontal">
+                                <div className="">
+                                    <label>Username :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="username" name="username"
+                                               defaultValue={modalCustomerViewData.name }
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >E-mail :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="email" name="email"
+                                               defaultValue={modalCustomerViewData.email }
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                            </form>
                         </ModalBody>
                         <ModalFooter>
                             <Button color="danger" onClick={toggleModalManufacturerView}>Fermer</Button>
@@ -169,13 +239,10 @@ function Admin() {
                     </Modal>
                 </div>
 
-                <div id="CustomerEdit">
+                <div id="ManufacturerEdit">
                     <Modal  isOpen={modalManufacturerEdit} toggle={toggleModalManufacturerEdit} >
-                        <ModalHeader toggle={toggleModalManufacturerEdit}>Informations du client</ModalHeader>
+                        <ModalHeader toggle={toggleModalManufacturerEdit}>Informations du fabricant</ModalHeader>
                         <ModalBody>
-                            <p>{modalManufacturerEditData.name }</p>
-                            <p>{modalManufacturerEditData.email }</p>
-                            AHAHA ICI ON VAS AVOIR LE FORMULAIRE AVEC LES INFORMATIONS DU Manufacturer
                         </ModalBody>
                         <ModalFooter>
                             <Button color="success" onClick={toggleModalManufacturerEdit}>Sauvegarder</Button>
@@ -188,9 +255,7 @@ function Admin() {
                     <Modal  isOpen={modalManufacturerDelete} toggle={toggleModalManufacturerDelete} >
                         <ModalHeader toggle={toggleModalManufacturerDelete}>Supprimer le client</ModalHeader>
                         <ModalBody>
-                            <p>{modalManufacturerDeleteData.name }</p>
-                            <p>{modalManufacturerDeleteData.email }</p>
-                            Etes-vous sur de vouloir supprimer ce Manufacturer ?
+                            Etes-vous sur de vouloir supprimer le fabricant {modalManufacturerDeleteData.name } ?
                         </ModalBody>
                         <ModalFooter>
                             <Button color="success" onClick={toggleModalManufacturerDelete}>Bien sur !</Button>
@@ -199,15 +264,73 @@ function Admin() {
                     </Modal>
                 </div>
             </div>
+
             {/*User*/}
             <div>
+                <div id="UserAdd">
+                    <Modal  isOpen={modalUserAdd} toggle={toggleModalUserAdd} >
+                        <ModalHeader toggle={toggleModalUserAdd}>Informations du client</ModalHeader>
+                        <ModalBody>
+                            <form className="form-horizontal">
+                                <div className="">
+                                    <label>Username :</label>
+                                    <div className="controls">
+                                        <input id="username" name="username"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >E-mail :</label>
+                                    <div className="controls">
+                                        <input id="email" name="email"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Rôle :</label>
+                                    <div className="controls">
+                                        <input id="role" name="role"
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="danger" onClick={toggleModalUserAdd}>Fermer</Button>
+                        </ModalFooter>
+                    </Modal>
+                </div>
+                
                 <div id="UserView">
                     <Modal  isOpen={modalUserView} toggle={toggleModalUserView} >
                         <ModalHeader toggle={toggleModalUserView}>Informations du client</ModalHeader>
                         <ModalBody>
-                            <p>{modalUserViewData.name }</p>
-                            <p>{modalUserViewData.email }</p>
-                            AHAHA ICI ON VAS AVOIR LES INFORMATIONS DU User
+                            <form className="form-horizontal">
+                                <div className="">
+                                    <label>Username :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="username" name="username"
+                                               defaultValue={modalUserViewData.name }
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >E-mail :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="email" name="email"
+                                               defaultValue={modalUserViewData.email }
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Rôle :</label>
+                                    <div className="controls">
+                                        <input readOnly={true} id="role" name="role"
+                                               defaultValue={modalUserViewData.email }
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                            </form>
                         </ModalBody>
                         <ModalFooter>
                             <Button color="danger" onClick={toggleModalUserView}>Fermer</Button>
@@ -215,13 +338,36 @@ function Admin() {
                     </Modal>
                 </div>
 
-                <div id="CustomerEdit">
+                <div id="UserEdit">
                     <Modal  isOpen={modalUserEdit} toggle={toggleModalUserEdit} >
                         <ModalHeader toggle={toggleModalUserEdit}>Informations du client</ModalHeader>
                         <ModalBody>
-                            <p>{modalUserEditData.name }</p>
-                            <p>{modalUserEditData.email }</p>
-                            AHAHA ICI ON VAS AVOIR LE FORMULAIRE AVEC LES INFORMATIONS DU User
+                            <form className="form-horizontal">
+                                <div className="">
+                                    <label>Username :</label>
+                                    <div className="controls">
+                                        <input id="username" name="username"
+                                               defaultValue={modalUserEditData.name }
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >E-mail :</label>
+                                    <div className="controls">
+                                        <input id="email" name="email"
+                                               defaultValue={modalUserEditData.email }
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                                <div className=" mt-2">
+                                    <label >Rôle :</label>
+                                    <div className="controls">
+                                        <input id="role" name="role"
+                                               defaultValue={modalUserEditData.email }
+                                               className="form-control"/>
+                                    </div>
+                                </div>
+                            </form>
                         </ModalBody>
                         <ModalFooter>
                             <Button color="success" onClick={toggleModalUserEdit}>Sauvegarder</Button>
@@ -230,13 +376,11 @@ function Admin() {
                     </Modal>
                 </div>
 
-                <div id="CustomerDelete">
+                <div id="UserDelete">
                     <Modal  isOpen={modalUserDelete} toggle={toggleModalUserDelete} >
                         <ModalHeader toggle={toggleModalUserDelete}>Supprimer le client</ModalHeader>
                         <ModalBody>
-                            <p>{modalUserDeleteData.name }</p>
-                            <p>{modalUserDeleteData.email }</p>
-                            Etes-vous sur de vouloir supprimer ce User ?
+                            Etes-vous sur de vouloir supprimer l'utilisateur {modalUserDeleteData.name } ?
                         </ModalBody>
                         <ModalFooter>
                             <Button color="success" onClick={toggleModalUserDelete}>Bien sur !</Button>
@@ -246,6 +390,7 @@ function Admin() {
                 </div>
             </div>
 
+            {/*Diffents TabView*/}
             <TabView activeIndex={0}>
                 <TabPanel header="Clients">
                     <CustomersTable showBtn={true}
