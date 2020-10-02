@@ -1,15 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Button, Table } from "reactstrap";
 import ManufacturersService from "./../services/manufacturers-service";
-
-const dataA =  ManufacturersService.findAll();
-
-const data =  [
-    { id: 1, nom: 'Baba',email: 'test@terst.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', siret: '0000000000000000000X', posx: '12', posy:'80'},
-    { id: 2, nom: 'Baba',email: 'test@terst.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', siret: '0000000000000000000X', posx: '12', posy:'80'},
-    { id: 3, nom: 'Baba',email: 'test@terst.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', siret: '0000000000000000000X', posx: '12', posy:'80'},
-    { id: 4, nom: 'Baba',email: 'test@terst.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', siret: '0000000000000000000X', posx: '12', posy:'80'},
-];
 
 function ManufacturersTable ({ showBtn,
                              toggleModalManufacturerAdd,
@@ -18,7 +9,14 @@ function ManufacturersTable ({ showBtn,
                              toggleModalManufacturerDelete}){
 
 
-    const [manufacturers, setManufacturers] = useState(data);
+    const [manufacturers, setManufacturers] = useState([]);
+
+    useEffect(() => {
+        ManufacturersService.findAll().then(
+            result => {
+                setManufacturers(result);
+            });
+    },[])
 
     const view = (id) => toggleModalManufacturerView(manufacturers.find(item => item.id === id));
     const edit = (id) => toggleModalManufacturerEdit(manufacturers.find(item => item.id === id));

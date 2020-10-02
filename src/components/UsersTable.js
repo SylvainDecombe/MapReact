@@ -1,15 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {  Button, Table } from "reactstrap";
 import UsersService from "./../services/user-service";
-
-//const dataA =  UsersService.findAll();
-
-const data =  [
-    { id: 1, prenom: 'Wasif', nom: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
-    { id: 2, prenom: 'Ali', nom: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
-    { id: 3, prenom: 'Saad', nom: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
-    { id: 4, prenom: 'Asad', nom: 'Baba',email: 'test@test.ru', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', ville: 'Angoulême', role: 'ADMIN'},
-];
 
 function UsersTable({ 
     showBtn,
@@ -19,12 +10,18 @@ function UsersTable({ 
     toggleModalUserDelete
 }) {
 
-    const [users, setUsers] = useState(data);
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        UsersService.findAll().then(
+        result => {
+            setUsers(result);
+            console.log(result)
+        });
+    },[])
 
     const view = (id) => toggleModalUserView(users.find(item => item.id === id));
     const edit = (id) => toggleModalUserEdit(users.find(item => item.id === id));
     const deleteUser = (id) => toggleModalUserDelete(users.find(item => item.id === id));
-
     return (
         <>
             {showBtn ? (
@@ -53,8 +50,8 @@ function UsersTable({ 
                 {
                     users.map((user, index) => (
                         <tr key={index}>
-                            <td style={{textAlign: "center"}}>{user.firstname}</td>
-                            <td style={{textAlign: "center"}}>{user.lastname}</td>
+                            <td style={{textAlign: "center"}}>{user.prenom}</td>
+                            <td style={{textAlign: "center"}}>{user.nom}</td>
                             <td style={{textAlign: "center"}}>{user.email}</td>
                             <td style={{textAlign: "center"}}>{user.tel}</td>
                             <td style={{textAlign: "center"}}>{user.adresse}</td>
@@ -81,6 +78,4 @@ function UsersTable({ 
         </>
     )
 }
-
-
-            export { UsersTable };
+export { UsersTable };

@@ -1,15 +1,6 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { Button, Table } from "reactstrap";
 import CustomersService from "./../services/customers-service";
-
-const dataA =  CustomersService.findAll();
-
-const data =  [
-    { id: 1, prenom: 'Wasif', nom: 'Baba', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', posy: '90', posx: '16'},
-    { id: 2, prenom: 'Ali', nom: 'Baba', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', posy: '90', posx: '16'},
-    { id: 3, prenom: 'Saad', nom: 'Baba', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', posy: '90', posx: '16'},
-    { id: 4, prenom: 'Asad', nom: 'Baba', tel: '0606060606', adresse: '2 rue de la joie', postal: '16000', pays: 'France', ville: 'Angoulême', posy: '90', posx: '16'},
-];
 
 function CustomersTable ({ showBtn,
                              toggleModalCustomerAdd,
@@ -18,7 +9,13 @@ function CustomersTable ({ showBtn,
                              toggleModalCustomerDelete,
                             }){
 
-    const [customers, setCustomers] = useState(data);
+    const [customers, setCustomers] = useState([]);
+    useEffect(() => {
+        CustomersService.findAll().then(
+            result => {
+                setCustomers(result);
+            });
+    },[])
     const view = (id) => toggleModalCustomerView(customers.find(item => item.id === id));
     const edit = (id) => toggleModalCustomerEdit(customers.find(item => item.id === id));
     const deleteCustomer = (id) => toggleModalCustomerDelete(customers.find(item => item.id === id));

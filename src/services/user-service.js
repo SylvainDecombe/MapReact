@@ -8,8 +8,7 @@ class UserService {
         return axios
             .get(API_URL, {})
             .then(response => {
-                console.log(response.data);
-                //return []
+                return response.data;
             });
     }
 
@@ -17,8 +16,7 @@ class UserService {
         return axios
             .get(API_URL)
             .then(response => {
-                console.log(response.data);
-                //return []
+                return response.data;
             });
     }
 

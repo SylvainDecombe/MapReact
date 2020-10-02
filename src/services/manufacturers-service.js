@@ -8,8 +8,7 @@ class ManufacturersService {
         return axios
             .get(API_URL, {})
             .then(response => {
-                console.log(response.data);
-                //return []
+                return response.data;
             });
     }
 
@@ -17,8 +16,8 @@ class ManufacturersService {
         return axios
             .get(API_URL)
             .then(response => {
-                console.log(response.data);
-                //return []
+                return response.data;
+
             });
     }
 

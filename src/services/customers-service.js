@@ -17,7 +17,7 @@ class CustomersService {
         return axios
             .get(API_URL)
             .then(response => {
-                console.log(response.data);
+                return(response.data);
                 //return []
             });
     }

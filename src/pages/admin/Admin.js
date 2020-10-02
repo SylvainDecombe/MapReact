@@ -7,7 +7,6 @@ import { ManufacturersTable } from "../../components/ManufacturersTable";
 import { UsersTable } from "../../components/UsersTable";
 import { UserService } from "../../services/user-service";
 import { ManufacturersService } from "../../services/manufacturers-service";
-import CustomersService from "../../services/customers-service";
 
 function Admin() {
     /* Partie Customer */
