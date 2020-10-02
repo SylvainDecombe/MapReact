@@ -16,9 +16,9 @@ function CustomersTable ({ showBtn,
                 setCustomers(result);
             });
     },[])
-    const view = (id) => toggleModalCustomerView(customers.find(item => item.id === id));
-    const edit = (id) => toggleModalCustomerEdit(customers.find(item => item.id === id));
-    const deleteCustomer = (id) => toggleModalCustomerDelete(customers.find(item => item.id === id));
+    const view = (_id) => toggleModalCustomerView(customers.find(item => item._id === _id));
+    const edit = (_id) => toggleModalCustomerEdit(customers.find(item => item._id === _id));
+    const deleteCustomer = (_id) => toggleModalCustomerDelete(customers.find(item => item._id === _id));
 
     return (
         <>
@@ -58,11 +58,11 @@ function CustomersTable ({ showBtn,
                             {showBtn ? (
                             <td  style={{textAlign: "right"}}>
                                 <div className="btn-group">
-                                    <Button className="btn btn-info" onClick={() => view(customer.id)}>
+                                    <Button className="btn btn-info" onClick={() => view(customer._id)}>
                                         <i className="pi pi-eye mr-1"/>Voirs</Button>
-                                    <Button className="btn btn-warning" onClick={() => edit(customer.id)}>
+                                    <Button className="btn btn-warning" onClick={() => edit(customer._id)}>
                                         <i className="pi pi-pencil mr-1"/>Editer</Button>
-                                    <Button className="btn btn-danger" onClick={() => deleteCustomer(customer.id)}>
+                                    <Button className="btn btn-danger" onClick={() => deleteCustomer(customer._id)}>
                                         <i className="pi pi-trash mr-1"/>Supprimer
                                     </Button>
                                 </div>

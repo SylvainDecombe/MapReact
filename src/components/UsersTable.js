@@ -19,9 +19,9 @@ function UsersTable({ 
         });
     },[])
 
-    const view = (id) => toggleModalUserView(users.find(item => item.id === id));
-    const edit = (id) => toggleModalUserEdit(users.find(item => item.id === id));
-    const deleteUser = (id) => toggleModalUserDelete(users.find(item => item.id === id));
+    const view = (_id) => toggleModalUserView(users.find(item => item._id === _id));
+    const edit = (_id) => toggleModalUserEdit(users.find(item => item._id === _id));
+    const deleteUser = (_id) => toggleModalUserDelete(users.find(item => item._id === _id));
     return (
         <>
             {showBtn ? (
@@ -60,11 +60,11 @@ function UsersTable({ 
                             {showBtn ? (
                                 <td style={{textAlign: "right"}}>
                                     <div className="btn-group">
-                                        <Button className="btn btn-info" onClick={() => view(user.id)}>
+                                        <Button className="btn btn-info" onClick={() => view(user._id)}>
                                             <i className="pi pi-eye mr-1"/>Voirs</Button>
-                                        <Button className="btn btn-warning" onClick={() => edit(user.id)}>
+                                        <Button className="btn btn-warning" onClick={() => edit(user._id)}>
                                             <i className="pi pi-pencil mr-1"/>Editer</Button>
-                                        <Button className="btn btn-danger" onClick={() => deleteUser(user.id)}>
+                                        <Button className="btn btn-danger" onClick={() => deleteUser(user._id)}>
                                             <i className="pi pi-trash mr-1"/>Supprimer
                                         </Button>
                                     </div>

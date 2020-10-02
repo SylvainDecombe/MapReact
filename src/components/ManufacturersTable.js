@@ -18,9 +18,9 @@ function ManufacturersTable ({ showBtn,
             });
     },[])
 
-    const view = (id) => toggleModalManufacturerView(manufacturers.find(item => item.id === id));
-    const edit = (id) => toggleModalManufacturerEdit(manufacturers.find(item => item.id === id));
-    const deleteManufacturer = (id) => toggleModalManufacturerDelete(manufacturers.find(item => item.id === id));
+    const view = (_id) => toggleModalManufacturerView(manufacturers.find(item => item._id === _id));
+    const edit = (_id) => toggleModalManufacturerEdit(manufacturers.find(item => item._id === _id));
+    const deleteManufacturer = (_id) => toggleModalManufacturerDelete(manufacturers.find(item => item._id === _id));
 
     return (
         <>
@@ -60,11 +60,11 @@ function ManufacturersTable ({ showBtn,
                             {showBtn ? (
                                 <td  style={{textAlign: "right"}}>
                                     <div className="btn-group">
-                                        <Button className="btn btn-info" onClick={() => view(manufacturer.id)}>
+                                        <Button className="btn btn-info" onClick={() => view(manufacturer._id)}>
                                             <i className="pi pi-eye mr-1"/>Voirs</Button>
-                                        <Button className="btn btn-warning" onClick={() => edit(manufacturer.id)}>
+                                        <Button className="btn btn-warning" onClick={() => edit(manufacturer._id)}>
                                             <i className="pi pi-pencil mr-1"/>Editer</Button>
-                                        <Button className="btn btn-danger" onClick={() => deleteManufacturer(manufacturer.id)}>
+                                        <Button className="btn btn-danger" onClick={() => deleteManufacturer(manufacturer._id)}>
                                             <i className="pi pi-trash mr-1"/>Supprimer
                                         </Button>
                                     </div>
