@@ -4,7 +4,8 @@ import Map from "react-leaflet/lib/Map";
 import Popup from "react-leaflet/lib/Popup";
 import Marker from "react-leaflet/lib/Marker";
 import Lefleat, { popup } from "leaflet";
-import 'leaflet/dist/leaflet.css'
+import 'leaflet/dist/leaflet.css';
+
 
 const MyPopupMarker = ({ content, position }) => (
   <Marker position={position} icon={iconMarker}>
@@ -27,6 +28,7 @@ var iconMarker = Lefleat.icon({
 
 export class PinMap extends React.Component {
     constructor(props) {
+        console.log(props);
         super(props)
         this.state = {
             markers: [
@@ -41,7 +43,9 @@ export class PinMap extends React.Component {
         return ( 
             <Map style = { { height: '800px', width: '100%' } } center = { [45.65, 0.15] } zoom = { 13 } onClick={this.addMarker}>
                 <TileLayer attribution = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' url = 'https://{s}.tile.osm.org/{z}/{x}/{y}.png' />
-                <MyMarkersList markers={this.state.markers} />
+                <MyMarkersList markers={this.props.markers.map((marker, index) => {
+                  return {key: marker.nom, position: [marker.posx, marker.posy], content:marker.tel}
+                })} />
             </Map>
         );
     }
