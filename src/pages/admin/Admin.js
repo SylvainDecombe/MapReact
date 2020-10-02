@@ -7,8 +7,10 @@ import { ManufacturersTable } from "../../components/ManufacturersTable";
 import { UsersTable } from "../../components/UsersTable";
 import { UserService } from "../../services/user-service";
 import { ManufacturersService } from "../../services/manufacturers-service";
+import AuthService from "../../services/auth-service";
 
 function Admin() {
+
     /* Partie Customer */
     const toggleModalCustomerAdd = () => setModalCustomerAdd(!modalCustomerAdd);
 
@@ -940,6 +942,10 @@ function Admin() {
                                         toggleModalManufacturerDelete={toggleModalManufacturerDelete}
                     ></ManufacturersTable>
                 </TabPanel>
+                {!!(AuthService.getRoleCurrentUser().role === "EDITOR" || AuthService.getRoleCurrentUser().role === "USER") ? (
+                    <TabPanel disabled={true} header="Utilisateurs">
+                    </TabPanel>
+                ) : (
                 <TabPanel header="Utilisateurs">
                     <UsersTable showBtn={true}
                                 toggleModalUserAdd={toggleModalUserAdd}
@@ -948,6 +954,7 @@ function Admin() {
                                 toggleModalUserDelete={toggleModalUserDelete}
                     ></UsersTable>
                 </TabPanel>
+                )}
             </TabView>
         </>
     );

@@ -44,9 +44,11 @@ function App() {
                             <NavLink className={'navLink mr-3'} to="/manufacturers">
                                 <i className="pi pi-money-bill mr-1"></i>
                                 Fabricants</NavLink>
+                            {AuthService.getRoleCurrentUser().role === "USER" ? (null):(
                             <NavLink className={'navLink mr-3'} to="/admin">
                                 <i className="pi pi-cog mr-1"></i>
                                 Administration</NavLink>
+                                )}
                         </div>
                         <div>
                             <NavLink className={'navLink'} to="/" onClick={AuthService.logout}>
@@ -62,9 +64,10 @@ function App() {
                         <Route path="/manufacturers">
                             <Manufacturers/>
                         </Route>
+                        {AuthService.getRoleCurrentUser().role === "USER" ? (null):(
                         <Route path="/admin">
                             <Admin/>
-                        </Route>
+                        </Route>)}
                         <Route path="/">
                             <Home/>
                         </Route>
