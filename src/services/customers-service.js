@@ -17,7 +17,7 @@ class CustomersService {
         return axios
             .get(API_URL)
             .then(response => {
-                return(response.data);
+                return (response.data);
                 //return []
             });
     }
@@ -32,9 +32,9 @@ class CustomersService {
             });
     }
 
-    delete() {
+    deleteCustomer(id) {
         return axios
-            .delete(API_URL, {})
+            .delete(API_URL + '/' + id)
             .then(response => {
                 console.log(response.data);
                 //return []

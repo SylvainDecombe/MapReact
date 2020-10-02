@@ -1,26 +1,36 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { useHistory } from "react-router-dom";
 
 import { TabPanel, TabView } from "primereact/tabview";
 import { CustomersTable } from "../../components/CustomersTable";
 import { ManufacturersTable } from "../../components/ManufacturersTable";
 import { UsersTable } from "../../components/UsersTable";
 import { UserService } from "../../services/user-service";
-import { ManufacturersService } from "../../services/manufacturers-service";
+import ManufacturersService from "../../services/manufacturers-service";
+import CustomerService from "../../services/customers-service";
 import AuthService from "../../services/auth-service";
 
 function Admin() {
 
+    let history = useHistory();
     /* Partie Customer */
     const toggleModalCustomerAdd = () => setModalCustomerAdd(!modalCustomerAdd);
 
     const saveCustomer = () => console.log("saveCustomer");
     const updateCustomer = () => console.log("updateCustomer");
-    const deleteCustomer = () => console.log("deleteCustomer");
+    const deleteCustomer = () => {
+        CustomerService.deleteCustomer(modalCustomerDeleteData._id);
+        history.push('/');
+    };
 
     const saveManufacturer = () => console.log("saveManufacturer");
     const updateManufacturer = () => console.log("updateManufacturer");
-    const deleteManufacturer = () => console.log("deleteManufacturer");
+    const deleteManufacturer = () => {
+        ManufacturersService.deleteManufacturer(modalManufacturerDeleteData._id);
+        history.push('/');
+    };
+
 
     const saveUser = () => console.log("saveUser");
     const updateUser = () => console.log("updateUser");

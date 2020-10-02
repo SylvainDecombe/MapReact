@@ -30,9 +30,9 @@ class ManufacturersService {
             });
     }
 
-    delete() {
+    deleteManufacturer(id) {
         return axios
-            .delete(API_URL, {})
+            .delete(API_URL + '/' + id)
             .then(response => {
                 console.log(response.data);
                 //return []
