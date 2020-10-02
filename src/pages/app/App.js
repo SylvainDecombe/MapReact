@@ -49,7 +49,7 @@ function App() {
                                 Administration</NavLink>
                         </div>
                         <div>
-                            <NavLink className={'navLink'} to="/" onClick={AuthService.logout()}>
+                            <NavLink className={'navLink'} to="/" onClick={AuthService.logout}>
                                 <i  className="pi pi-sign-out mr-1"></i>Log out</NavLink>
                         </div>
 
